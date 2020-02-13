@@ -1,0 +1,403 @@
+# NeverLAN CTF 2020
+Start: Sat, Feb 8 2020, 10:00 AM EST
+End: Tue, Feb 11 2020, 7:00 PM EST
+
+# Placing
+- Schools: 2nd (max score)
+- General: 32nd
+
+# Review
+This weekend I played in NeverlanCTF as the solo team `bosh`. The challenges were alright, although many of them were just guessing.
+
+I didn't like how they did not announce challenge drops before they actually released them, and how the platform went down after the last wave of challenge releases.
+
+# Writeups
+## Table of contents
+| Challenge Name | Category | Points |
+|:-:|:-:|:-:|
+| Adobe Payroll | Reverse Engineering | 100 |
+| Script Kiddie | Reverse Engineering | 100  |
+| Reverse Engineer | Reverse Engineering | 200 |
+| Pigsfly | Cryptography | 30 |
+| BaseNot64 | Cryptography | 50 |
+| Don't Take All Knight | Cryptography | 75 |
+| The Invisibles | Cryptography | 75 |
+| Stupid Cupid | Cryptography | 100 |
+| My Own Encoding | Cryptography | 200 |
+| BabyRSA | Cryptography | 250 |
+| CryptoHole | Cryptography | 250 |
+| It is like an onion of secrets | Cryptography | 300 |
+| Unsecured Login | PCAP | 50 |
+| Unsecured Login2 | PCAP | 75 |
+| FTP | PCAP | 100 |
+| Teletype Network | PCAP | 125 |
+| hidden-ctf-on-my-network | PCAP | 250 |
+| Listen to this | Forensics | 125 |
+| Open Backpack | Forensics | 150 |
+| Look into the past | Forensics | 250 |
+| DasPrime | Programming | 100 |
+| password_crack | Programming | 100 |
+| Robot Talk | Programming | 200 |
+| BitsnBytes | Programming | 200 |
+| Evil | Programming | 200 |
+| Front page of the Internet | Recon | 50 |
+| The Big Stage | Recon | 75 |
+| The Link | Recon | 75 |
+| Thats just Phreaky | Recon | 200 |
+| Cookie Monster | Web | 10 |
+| Stop the Bot | Web | 50 |
+| SQL Breaker | Web | 50 |
+| SQL Breaker 2 | Web | 75 |
+| Follow Me! | Web | 100 |
+| Browser Bias | Web | 150 |
+| Chicken Little 1 | Chicken Little | 35 |
+| Chicken Little 2 | Chicken Little | 36 |
+| Chicken Little 3 | Chicken Little | 37 |
+| Chicken Little 4 | Chicken Little | 38 |
+| Chicken Little 5 | Chicken Little | 39 |
+| Chicken Little 6 | Chicken Little | 40 |
+| Chicken Little 7 | Chicken Little | 100 |
+| Milk Please | Trivia | 10 |
+| Professional Guessing | Trivia | 10 |
+| Base 2^6 | Trivia | 10 |
+| AAAAAAAAAAAAAA! I hate CVEs | Trivia | 20 |
+| Rick Rolled by the NSA??? | Trivia | 50 |
+
+## Reverse Engineering
+### Adobe Payroll
+> We've forgotten the password to our payroll machine. Can you extract it?
+Your flag will be in the flag{flagGoesHere} syntax.
+Attachments: Adobe_Payroll.7z
+
+
+Once we unzip with 7z we end up with two files:
+`description.MD`
+`Adobe_Employee_Payroll.exe`
+
+`description.MD` hints towards a software called [DotPeek](https://www.jetbrains.com/decompiler/).
+
+DotPeek decompiles (read: translates to semi human readable code) .NET files, such as our .exe file. After we open `Adobe_Employee_Payroll.exe` up, we can explore the files:
+
+![](https://i.imgur.com/FDU78kE.png)
+
+Double clicking on something seems like a good idea. Now we can see the decompiled code for something that looks important:
+![](https://i.imgur.com/X4hnWnz.png)
+As you can see, `r1`, `r2`, `r3` and so (till `r38`) on seem to be holding integers. They seem like they're ASCII values... and they are!
+
+Without even looking at the rest of the program, we can find the flag by converting all the values from `r1` through `r38` to letters.
+
+### Script Kiddie
+### Reverse Engineer
+
+## Cryptography
+### Pigsfly
+> Attachments: pigsfly.png
+
+Basic substitution cipher, using the pigpen cipher alphabet.
+
+Decrypting gives the flag.
+
+### BaseNot64
+> ORUGS43PNZSXG33ONR4TGMRBEEYSC===
+Your flag will be in the normal flag{flagGoesHere} syntax.
+
+As from the title, the data is not in base 64. We play around with the different encodings in [cyberchef](https://gchq.github.io/CyberChef/).
+
+Noticing that there are only capital letters / symbols in the plaintext, we can probably guess that the base will be relatively small. We try to decode it as a base 32 string, and it works.
+
+Decoding gives the flag.
+
+### Don't Take All Knight
+> Attachments: DontTakeAllKnight.png
+
+Another basic substitution cipher, using the Knights Templar Code cipher. Decode.f<span>r</span> has a [nice solver](https://www.dcode.fr/templars-cipher).
+
+Decrypting gives the flag.
+
+### The Invisibles
+> Attachments: The_invisibles.png
+
+Yet another basic substitution cipher, using the Arthurs and the Invisibles alphabet. Decode.f<span>r</span> has a [nice solver](https://www.dcode.fr/arthur-invisibles-cipher).
+
+Decrypting gives the flag.
+
+### Stupid Cupid
+> Attachments: stupid_cupid.txt
+
+Googling `Cupid cipher` gives us some results about how James Madison hid his plaintexts in some text using numbers.
+
+When we count the amount of numbers in the ciphertext at the top of the file, we find that it is equal to the amount of rows there are, and the highest number in the ciphertext does not exceed the number of columns :eyes:
+
+We then guess that each row corresponds to a character of the plaintext, and each number in the ciphertext is the corresponding column to pick from.
+
+For example:
+The first number in the ciphertext is `6`. The character at the first row, 6th column is `V`.
+Then, the second number in the ciphertext is `12`. The character at the second row, 12th column is `E`.
+
+Continue to get the flag.
+
+### My Own Encoding
+
+> Here's an encoding challenge. This doesnt really test your technical skills, but focuses on your critical thinking.
+I wrote my own encoding scheme. Can you decode it?"
+Attachments: secretmessage.jpg
+
+
+We are presented with 16 5x5 grids, each with a single box blacked out.
+Shot in the dark.
+We reason that since it is 5x5, there are 25 choices which is close enough to 26 (letters of the alphabet).
+
+We assume the top left represents the letter A, and the next one to the right represents B, and so on.
+
+Doing so, we get `MHBDI...`, until we reach the 12th box. There is no marking here! Another shot in the dark. We assume that no marking represents the letter `A`.
+
+Thus, our previously transcribed "plaintext" has to be Caesar shifted by 1 to get the flag, easy enough.
+
+### BabyRSA
+> We've intercepted this RSA encrypted message 2193 1745 2164 970 1466 2495 1438 1412 1745 1745 2302 1163 2181 1613 1438 884 2495 2302 2164 2181 884 2302 1703 1924 2302 1801 1412 2495 53 1337 2217
+We know it was encrypted with the following public key e: 569 n: 2533
+
+Questionable RSA. I didn't know what to do with the numbers since they were spaced out. I finally guessed they were individual characters of the flag and successfully decrypted them as such.
+
+Using [factordb](http://factordb.com/), we can factor `n` into `17 * 149`, obviously the p and q for this challenge.
+
+Now, using modified code from [a StackExchange article](https://crypto.stackexchange.com/questions/19444/rsa-given-q-p-and-e), we can decrypt the flag character by character.
+
+```python
+# Function from Geeks for Geeks
+def modInverse(a, m): 
+    m0 = m, y = 0, x = 1
+    if (m == 1): 
+        return 0
+    while (a > 1) : 
+        q = a // m 
+        t = m 
+        m = a % m 
+        a = t 
+        t = y 
+        y = x - q * y 
+        x = t
+        
+    if (x < 0):
+        x += m0
+        
+    return x 
+
+
+def decrypt(ct):
+    p = 17
+    q = 149
+    e = 569
+
+    # compute n
+    n = p * q
+
+    # Compute phi(n)
+    phi = (p - 1) * (q - 1)
+
+    # Compute mult mod inv of e
+    d = modInverse(e, phi)
+
+    # Decrypt ciphertext
+    pt = pow(ct, d, n)
+    print(chr(pt), end="")
+
+
+chall = "2193 1745 2164 970 1466 2495 1438 1412 1745 1745 2302 1163 2181 1613 1438 884 2495 2302 2164 2181 884 2302 1703 1924 2302 1801 1412 2495 53 1337 2217".split()
+
+# this is probably bad practice but it works
+list(map(lambda x: decrypt(int(x)), chall))
+```
+
+
+### CryptoHole
+### It is like an onion of secrets
+
+## PCAP
+### Unsecured Login
+### Unsecured Login2
+### FTP
+### Teletype Network
+### hidden-ctf-on-my-network
+
+## Forensics
+### Listen to this
+> You hear that?
+> -ps This guy might be important
+> Attachments: HiddenAudio.mp3
+
+When we listen to the mp3 initially, we can hear a faint beeping in the background. This sounds like Morse code, so let's find an easy way to transcribe it to dits and dahs (radio speak for dots and dashes).
+
+We open it up in Audacity, and notice there are two tracks. Let's split them up:
+
+
+
+### Open Backpack
+### Look into the past
+
+## Programming
+### DasPrime
+> My assignments due and I still don't have the answer! Can you help me fix my Python script... and also give me the answer? I need to make a prime number generator and find the 10,497th prime number. I've already written a python script that kinda works... can you either fix it or write your own and tell me the prime number?
+```python
+import math
+def main():
+    primes = []
+    count = 2
+    index = 0
+    while True:
+        isprime = False
+        for x in range(2, int(math.sqrt(count) + 1)):
+            if count % x == 0: 
+                isprime = True
+                continue
+        if isprime:
+            primes.append(count)
+            print(index, primes[index])
+            index += 1
+        count += 1
+if __name__ == "__main__":
+    main()
+```
+
+This algorithm seems kind of slow...
+
+We can write a faster script such as this one:
+```python
+
+```
+
+We access the 10497th element of the array to get the flag.
+
+### password_crack
+### Robot Talk
+### BitsnBytes
+### Evil
+
+## Recon
+### Front page of the Internet
+> Whoops... I leaked a flag on a public website
+
+The "front page of the Internet" is Reddit.
+The author is `ZestyFE`, so we guess that he has a Reddit account under the same name.
+
+We navigate to `/u/ZestyFE` on Reddit, and find the flag in one of ZestyFE's comments.
+
+### The Big Stage
+### The Link
+### Thats just Phreaky
+
+## Web
+### Cookie Monster
+> This website is hiding the flag. You'll need to use your browser's tools to solve the challenge.
+https://challenges.neverlanctf.com:1110
+
+The title hints that it has something to do with cookies.
+
+When we visit the site, it says `He's my favorite Red guy`. We guess this to be `Elmo` from Sesame Street.
+
+We look at the cookies, and find a cookie `Red_Guy's_Name: NameGoesHere`. We replace `NameGoesHere` with `elmo`.
+
+We get the flag by refreshing the tab.
+
+### Stop the Bot
+> https://challenges.neverlanctf.com:1140
+
+The site looks pretty boring, so let's take a look at `/robots.txt`, which is hinted at by the title:
+```
+User-agent: *
+Disallow: /
+Disallow: flag.txt
+```
+
+We navigate to `/flag.txt` for the flag.
+
+### SQL Breaker
+> https://challenges.neverlanctf.com:1160/
+
+Simple SQL injection in the login page.
+Note that the password does not matter, only the username is vulnerable.
+
+The goal is to log in as an admin.
+
+Payload:
+```
+Username: ' OR 1=1;-- 
+Password: asdf
+```
+
+Return to the home page for the flag.
+
+### SQL Breaker 2
+> https://challenges.neverlanctf.com:1165/
+
+Simple SQL injection in the login page.
+Note that the password does not matter, only the username is vulnerable.
+
+The goal is to log in as an admin.
+
+This time, there seems to be multiple accounts, and the previous payload logs us in as `John`, who is not an admin. We have to skip over John's account using SQL's `LIMIT` to log in as admin.
+
+Payload:
+```
+Username: ' OR 1=1, LIMIT 1;-- 
+Password: asdf
+```
+
+Return to the home page for the flag.
+
+### Follow Me!
+> Let's start here. https://7aimehagbl.neverlanctf.com
+
+This website redirects so many times your browser just gives up. We can use Python's `requests` module and the `follow_redirects=False` option.
+
+### Browser Bias
+> https://challenges.neverlanctf.com:1130
+
+When we try to visit the site normally, it says that the site is only for `commodo 64` browsers.
+
+We guess that the server tells what browser we are using based on the User-Agent header of the request.
+
+When we Google for Commodo 64 browsers, we end up with a browser named `Contiki`. We search for the Contiki User-Agent.
+
+We find a [really long list of User-Agents](https://gist.github.com/dstufft/2502524) that ever downloaded something from PyPI on GitHub Gists, and we Ctrl-F for Contiki.
+
+We find the User-Agent for Contiki as `Contiki/1.0 (Commodore 64; http://dunkels.com/adam/contiki/)`.
+
+We set that as our User-Agent using Python's `requests`, and request the home page, which gives us the flag.
+
+## Chicken Little
+### Chicken Little 1
+### Chicken Little 2
+### Chicken Little 3
+### Chicken Little 4
+### Chicken Little 5
+### Chicken Little 6
+### Chicken Little 7
+
+## Trivia
+### Milk Please
+> Trivia Question: a reliable mechanism for websites to remember stateful information. Yummy!
+>
+It's talking about cookies, which is the flag.
+### Professional Guessing
+> The process of attempting to gain Unauthorized access to restricted systems using common passwords or algorithms that guess passwords
+
+Google the description.
+
+An article defines the description for the term "password cracking", which is the flag.
+### Base 2^6
+> A group of binary-to-text encoding schemes that represent binary data in an ASCII string format by translating it into a radix-64 representation
+
+`Radix-64` basically tells us that the flag is base64.
+
+### AAAAAAAAAAAAAA! I hate CVEs
+> This CVE reminds me of some old school exploits. If flag is enabled in sudoers
+
+We Google `If flag is enabled in sudoers cve` and find [this site](https://www.exploit-db.com/exploits/47995), which has the flag in it.
+
+### Rick Rolled by the NSA???
+> This CVE Proof of concept Shows NSA.go<span>v</span> playing "Never Gonna Give You Up," by 1980s heart-throb Rick Astley.
+Use the CVE ID for the flag. flag{CVE-?????????}
+
+I remember seeing this as a meme on Reddit :laughing:
+Googling the description gives news articles detailing the correct CVE ID for the flag.
