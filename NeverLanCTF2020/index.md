@@ -15,53 +15,53 @@ I didn't like how they did not announce challenge drops before they actually rel
 ## Table of contents
 | Challenge Name | Category | Points |
 |:-:|:-:|:-:|
-| Adobe Payroll | Reverse Engineering | 100 |
-| Script Kiddie | Reverse Engineering | 100  |
-| Reverse Engineer | Reverse Engineering | 200 |
-| Pigsfly | Cryptography | 30 |
-| BaseNot64 | Cryptography | 50 |
-| Don't Take All Knight | Cryptography | 75 |
-| The Invisibles | Cryptography | 75 |
-| Stupid Cupid | Cryptography | 100 |
-| My Own Encoding | Cryptography | 200 |
-| BabyRSA | Cryptography | 250 |
-| CryptoHole | Cryptography | 250 |
-| It is like an onion of secrets | Cryptography | 300 |
-| Unsecured Login | PCAP | 50 |
-| Unsecured Login2 | PCAP | 75 |
-| FTP | PCAP | 100 |
-| Teletype Network | PCAP | 125 |
-| hidden-ctf-on-my-network | PCAP | 250 |
-| Listen to this | Forensics | 125 |
-| Open Backpack | Forensics | 150 |
-| Look into the past | Forensics | 250 |
-| DasPrime | Programming | 100 |
-| password_crack | Programming | 100 |
-| Robot Talk | Programming | 200 |
-| BitsnBytes | Programming | 200 |
-| Evil | Programming | 200 |
-| Front page of the Internet | Recon | 50 |
-| The Big Stage | Recon | 75 |
-| The Link | Recon | 75 |
-| Thats just Phreaky | Recon | 200 |
-| Cookie Monster | Web | 10 |
-| Stop the Bot | Web | 50 |
-| SQL Breaker | Web | 50 |
-| SQL Breaker 2 | Web | 75 |
-| Follow Me! | Web | 100 |
-| Browser Bias | Web | 150 |
-| Chicken Little 1 | Chicken Little | 35 |
-| Chicken Little 2 | Chicken Little | 36 |
-| Chicken Little 3 | Chicken Little | 37 |
-| Chicken Little 4 | Chicken Little | 38 |
-| Chicken Little 5 | Chicken Little | 39 |
-| Chicken Little 6 | Chicken Little | 40 |
-| Chicken Little 7 | Chicken Little | 100 |
-| Milk Please | Trivia | 10 |
-| Professional Guessing | Trivia | 10 |
-| Base 2^6 | Trivia | 10 |
-| AAAAAAAAAAAAAA! I hate CVEs | Trivia | 20 |
-| Rick Rolled by the NSA??? | Trivia | 50 |
+| [Adobe Payroll](#adobe-payroll) | Reverse Engineering | 100 |
+| [Script Kiddie](#script-kiddie) | Reverse Engineering | 100 |
+| [Reverse Engineer](#reverse-engineer) | Reverse Engineering | 200 |
+| [Pigsfly](#pigsfly) | Cryptography | 30 |
+| [BaseNot64](#basenot64) | Cryptography | 50 |
+| [Don't Take All Knight](#don't-take-all-knight) | Cryptography | 75 |
+| [The Invisibles](#the-invisibles) | Cryptography | 75 |
+| [Stupid Cupid](#stupid-cupid) | Cryptography | 100 |
+| [My Own Encoding](#my-own-encoding) | Cryptography | 200 |
+| [BabyRSA](#babyrsa) | Cryptography | 250 |
+| [CryptoHole](#cryptohole) | Cryptography | 250 |
+| [It is like an onion of secrets](#it-is-like-an-onion-of-secrets) | Cryptography | 300 |
+| [Unsecured Login](#unsecured-login) | PCAP | 50 |
+| [Unsecured Login2](#unsecured-login2) | PCAP | 75 |
+| [FTP](#ftp) | PCAP | 100 |
+| [Teletype Network](#teletype-network) | PCAP | 125 |
+| [hidden-ctf-on-my-network](#hidden-ctf-on-my-network) | PCAP | 250 |
+| [Listen to this](#listen-to-this) | Forensics | 125 |
+| [Open Backpack](#open-backpack) | Forensics | 150 |
+| [Look into the past](#look-into-the-past) | Forensics | 250 |
+| [DasPrime](#dasprime) | Programming | 100 |
+| [password_crack](#password_crack) | Programming | 100 |
+| [Robot Talk](#robot-talk) | Programming | 200 |
+| [BitsnBytes](#bitsnbytes) | Programming | 200 |
+| [Evil](#evil) | Programming | 200 |
+| [Front page of the Internet](#front-page-of-the-internet) | Recon | 50 |
+| [The Big Stage](#the-big-stage) | Recon | 75 |
+| [The Link](#the-link) | Recon | 75 |
+| [Thats just Phreaky](#thats-just-phreaky) | Recon | 200 |
+| [Cookie Monster](#cookie-monster) | Web | 10 |
+| [Stop the Bot](#stop-the-bot) | Web | 50 |
+| [SQL Breaker](#sql-breaker) | Web | 50 |
+| [SQL Breaker 2](#sql-breaker-2) | Web | 75 |
+| [Follow Me!](#follow-me!) | Web | 100 |
+| [Browser Bias](#browser-bias) | Web | 150 |
+| [Chicken Little 1](#chicken-little-1) | Chicken Little | 35 |
+| [Chicken Little 2](#chicken-little-2) | Chicken Little | 36 |
+| [Chicken Little 3](#chicken-little-3) | Chicken Little | 37 |
+| [Chicken Little 4](#chicken-little-4) | Chicken Little | 38 |
+| [Chicken Little 5](#chicken-little-5) | Chicken Little | 39 |
+| [Chicken Little 6](#chicken-little-6) | Chicken Little | 40 |
+| [Chicken Little 7](#chicken-little-7) | Chicken Little | 100 |
+| [Milk Please](#milk-please) | Trivia | 10 |
+| [Professional Guessing](#professional-guessing) | Trivia | 10 |
+| [Base 2^6](#base-2^6) | Trivia | 10 |
+| [AAAAAAAAAAAAAA! I hate CVEs](#aaaaaaaaaaaaaa!-i-hate-cves) | Trivia | 20 |
+| [Rick Rolled by the NSA???](#rick-rolled-by-the-nsa???) | Trivia | 50 |
 
 ## Reverse Engineering
 ### Adobe Payroll
