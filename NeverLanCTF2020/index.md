@@ -1,5 +1,6 @@
 # NeverLAN CTF 2020
 Start: Sat, Feb 8 2020, 10:00 AM EST
+
 End: Tue, Feb 11 2020, 7:00 PM EST
 
 # Placing
@@ -142,7 +143,6 @@ Continue to get the flag.
 I wrote my own encoding scheme. Can you decode it?"
 Attachments: secretmessage.jpg
 
-
 We are presented with 16 5x5 grids, each with a single box blacked out.
 Shot in the dark.
 We reason that since it is 5x5, there are 25 choices which is close enough to 26 (letters of the alphabet).
@@ -211,7 +211,69 @@ list(map(lambda x: decrypt(int(x)), chall))
 
 
 ### CryptoHole
+
+
 ### It is like an onion of secrets
+>
+
+Basically just a bunch of ciphers. Each level has a chal.txt which contains an encrypted password, and a password-protected zip file for the next layer.
+
+Here is the order:
+
+Layer 1 -`A ffine Cipher here 3`:
+- Affine Cipher
+- Brute force
+- Password is `AfvqPZW0bDMB&HTfzo`
+
+Layer 2 - `Two is better than one`
+- Double Transposition Cipher
+- Both keys are `NEVERLANCTF`
+- Ciphertext decrypts to `PASSWORDV78DTNRI6KBD3SDFQXXXXXXXX`
+- Password is `V78DTNRI6KBD3SDFQ`
+
+Layer 3 - `I'm on the fence with this one`
+- Rail Fence Cipher:
+- Brute force
+- `password:·VSEAS5aevg8Bwlovr`
+
+Layer 4 - `Salad Time`
+- Keyed Caesar Cipher
+- Key is `neverLANCTF`
+- Shift is `0`
+- Password is `gTLvCGk$HyRVSssXVaSX`
+
+Layer 5 - `ROTten`
+- Standard Caesar Cipher
+- Shift is `13`
+- Password is `e1Ydr*zxOOybF6RR%h5f`
+
+Layer 6 - `Vigenere Equivent E`
+- Standard Caesar Cipher
+- Shift is `22`
+- Password is `fI7BPZL#ZN5PI!&pbTXc`
+
+Layer 7 - `Easy one`
+- Base64 encoded string
+- Password is `vxw@Ztet#ZfBnYVxJ1IM`
+
+Layer 8 - `Message indigestion`
+- MD5 digest
+- Brute force
+- Password is `password23`
+
+Layer 9 - `For SHA dude`
+- SHA1 digest
+- Brute force
+- Password is `applez14`
+
+Layer 10 - `ONE more TIME`
+- One Time Pad
+- First part of key is `This is our world now...` from `chal.txt`
+    - Hints to a section from the Hacker Manifesto
+- Full key is: `This is our world now... the world of the electron and the switch, the
+beauty of the baud.  We make use of a service already existing without paying
+for what could be`
+- Decrypt the OTP to get the flag
 
 ## PCAP
 ### Unsecured Login
@@ -233,6 +295,12 @@ We open it up in Audacity, and notice there are two tracks. Let's split them up:
 
 
 ### Open Backpack
+>
+
+The image says something is unzipped...
+Let's try `binwalk`.
+
+Binwalk extracts two files, a zip and a file called `flag.png`, which has the flag of course.
 ### Look into the past
 
 ## Programming
@@ -263,12 +331,46 @@ This algorithm seems kind of slow...
 
 We can write a faster script such as this one:
 ```python
+from math import sqrt
 
+def is_prime(n):
+    if (n <= 1):
+        return False
+    if (n == 2):
+        return True
+    if (n % 2 == 0):
+        return False
+
+    i = 3
+    while i <= sqrt(n):
+        if n % i == 0:
+            return False
+        i = i + 2
+
+    return True
+
+
+def prime_generator():
+    n = 1
+    while True:
+        n += 1
+        if is_prime(n):
+            yield n
+
+generator = prime_generator()
+
+x = []
+
+
+for i in range(10948):
+    x.append(next(generator))
 ```
 
-We access the 10497th element of the array to get the flag.
+We access the 10497th element of `x` to get the flag.
 
 ### password_crack
+Simple MD5 brute force. I got the author names from the Discord server.
+
 ### Robot Talk
 ### BitsnBytes
 ### Evil
@@ -348,7 +450,25 @@ Return to the home page for the flag.
 ### Follow Me!
 > Let's start here. https://7aimehagbl.neverlanctf.com
 
-This website redirects so many times your browser just gives up. We can use Python's `requests` module and the `follow_redirects=False` option.
+This website redirects so many times your browser just gives up. We can use Python's `requests` module and the `follow_redirects=False` option:
+```python
+import requests
+p = requests.get("https://7aimehagbl.neverlanctf.com", allow_redirects=False)
+```
+On the first visit (using Python), the page states where it's redirecting. How convenient. How about we just follow the trail?
+
+```python
+import requests
+
+url = "https://7aimehagbl.neverlanctf.com"
+
+while True:
+    p = requests.get(url, allow_redirects=False)
+    print(p.text)
+    url = "https://" + p.text.split()[-1]
+```
+
+The flag is in one of the sites that we get redirected to.
 
 ### Browser Bias
 > https://challenges.neverlanctf.com:1130
