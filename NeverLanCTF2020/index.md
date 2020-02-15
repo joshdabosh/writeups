@@ -272,13 +272,47 @@ for what could be`
 - Decrypt the OTP to get the flag
 
 ### It is like an onion of secrets
+>This one has layers like an onion.
+Just don't let it make you cry..
+Attachments: Much_Confused.png
+
+We get download the png image. In it is a funky lookin dog with no flag :(
+
+We guess it is LSB encrypted since Binwalk doesn't return anything useful.
+
+We plug it into [stylesuxx's LSB tool](https://stylesuxx.github.io/steganography) and we decode.
+
+We get some base64, which we now play with a bunch in [CyberChef](https://gchq.github.io/CyberChef/).
+
+After we base64 decode it twice, we get a bunch of:
+`lspv wwat kl rljvzfciggvnclzv`
+
+Now we guess again and decrypt it using the `Variant Beaufort Vigenere cipher` (found on Cryptii's Vigenere tool) and key `NeverLANCTF`. The plaintext gives the flag.
 
 ## PCAP
 ### Unsecured Login
+> We caught someone logging into their website, but they didn't use https!
+
+You don't even need Wireshark, just use `strings mysite.pcap | grep flag`
+
 ### Unsecured Login2
+> We caught someone logging into their website, but they didn't check their links when submitting data!
+
+You don't even need Wireshark, just use `strings mysite2.pcap | grep flag`
+
 ### FTP
+> It looks like someone forgot to use a secure version of ftp...
+
+You don't even need Wireshark, just use `strings ftp.pcap | grep flag`
+If you want to, you can right click on any ftp packet and follow the tcp stream. If there's no flag, then move on to the next stream.
+
 ### Teletype Network
+> It looks like someone hasn't upgraded to ssh yet...
+
+You don't even need Wireshark, just use `strings telnet.pcap | grep flag`
+
 ### hidden-ctf-on-my-network
+> 
 
 ## Forensics
 ### Listen to this
@@ -399,7 +433,7 @@ print(conn.recv())
 ### BitsnBytes
 > https://challenges.neverlanctf.com:1150
 
-This site gives an svg which we can download. Quite obviously, the colors represent `0` and `1` in binary.
+This site gives an svg which we can download. Quite obviously, the colors represent `0` and `1` in binary (gray is 1, green is 0).
 
 We find out that we can download the svg information directly from `/svg.php`, which makes it much easier for a script.
 
