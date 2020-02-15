@@ -49,7 +49,7 @@ I didn't like how they did not announce challenge drops before they actually rel
 | [Stop the Bot](#stop-the-bot) | Web | 50 |
 | [SQL Breaker](#sql-breaker) | Web | 50 |
 | [SQL Breaker 2](#sql-breaker-2) | Web | 75 |
-| [Follow Me](#follow-me!) | Web | 100 |
+| [Follow Me!](#follow-me) | Web | 100 |
 | [Browser Bias](#browser-bias) | Web | 150 |
 | [Chicken Little 1](#chicken-little-1) | Chicken Little | 35 |
 | [Chicken Little 2](#chicken-little-2) | Chicken Little | 36 |
