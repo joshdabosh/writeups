@@ -374,8 +374,6 @@ Simple MD5 brute force. I got the author names from the Discord server.
 More on this later when they publish the challenges again (they took them down).
 
 ### Robot Talk
-
-
 We just have to convert 5 base64 values to ASCII.
 
 I used pwntools, a pretty neat library for tasks like these.
@@ -399,7 +397,79 @@ for i in range(5):
 print(conn.recv())
 ```
 ### BitsnBytes
+> https://challenges.neverlanctf.com:1150
+
+This site gives an svg which we can download. Quite obviously, the colors represent `0` and `1` in binary.
+
+We find out that we can download the svg information directly from `/svg.php`, which makes it much easier for a script.
+
+We parse the image, using regex to remove all different attributes such as x, y, width, and height for each `<rect>` in the svg. Then, we simply just use `str.replace()` in Python to get the binary string.
+
+Then we convert that binary string into text.
+
+However, most of the time the server will return an svg that doesn't have the flag. Instead, it will return some time hash information which is useless to us.
+
+We can repeatedly query the server for an svg until it gives us a flag svg.
+
+```
+from __future__ import print_function
+
+
+import requests
+
+while True:
+        f = requests.get("https://challenges.neverlanctf.com:1150/svg.php").text.decode()
+
+
+        f = f[336:-9]
+
+        f= f.strip()
+
+        import re
+
+        s = re.compile(r"\sid='\d*'")
+        a = re.compile(r"\sx='\d*'")
+        b = re.compile(r"\sy='\d*'")
+
+        c = re.compile(r"width='\d*' ")
+        d = re.compile(r"height='\d*' ")
+
+        f = s.sub("", f)
+        f = a.sub("", f)
+        f = b.sub("", f)
+        f = c.sub("", f)
+        f = d.sub("", f)
+
+        #print(f)
+
+        f = f.replace("<rect style='fill:#333136'/>", "1")
+        f = f.replace("<rect style='fill:#00ff00'/>", "0")
+
+        f = [f[i:i+8] for i in range(0, len(f), 8)]
+
+        #print(f)
+
+        x = "".join([chr(int(i, 2)) for i in f])
+
+        if not "time hash:" in x:
+                print(x)
+```
+
 ### Evil
+> You have been tasked with stealing sensitive data from an evil crime lord. Do you have what it takes?
+> 
+> ssh neverlan@medusa.neverlanctf.com -p 3333
+> password: eyesofstone
+
+We initially find an intel.txt, giving us information. We have to ssh onto `evil@victim`.
+
+Using Medusa (an ssh password cracker), we can bruteforce the password easily. It is `0024`.
+
+Once ssh'd, we find a zip file with some base64 as its name. It's password protected, so we try decoding the name.
+
+Decoded, the name of the zip file is `stonecold`, which is used to unzip the zip file.
+
+The content of the zip file is the flag.
 
 ## Recon
 ### Front page of the Internet
