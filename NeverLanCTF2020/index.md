@@ -66,11 +66,6 @@ I didn't like how they did not announce challenge drops before they actually rel
 
 ## Reverse Engineering
 ### Adobe Payroll
-> We've forgotten the password to our payroll machine. Can you extract it?
-Your flag will be in the flag{flagGoesHere} syntax.
-Attachments: Adobe_Payroll.7z
-
-
 Once we unzip with 7z we end up with two files:
 `description.MD`
 `Adobe_Employee_Payroll.exe`
@@ -92,16 +87,11 @@ Without even looking at the rest of the program, we can find the flag by convert
 
 ## Cryptography
 ### Pigsfly
-> Attachments: pigsfly.png
-
 Basic substitution cipher, using the pigpen cipher alphabet.
 
 Decrypting gives the flag.
 
 ### BaseNot64
-> ORUGS43PNZSXG33ONR4TGMRBEEYSC===
-Your flag will be in the normal flag{flagGoesHere} syntax.
-
 As from the title, the data is not in base 64. We play around with the different encodings in [cyberchef](https://gchq.github.io/CyberChef/).
 
 Noticing that there are only capital letters / symbols in the plaintext, we can probably guess that the base will be relatively small. We try to decode it as a base 32 string, and it works.
@@ -109,22 +99,16 @@ Noticing that there are only capital letters / symbols in the plaintext, we can 
 Decoding gives the flag.
 
 ### Don't Take All Knight
-> Attachments: DontTakeAllKnight.png
-
 Another basic substitution cipher, using the Knights Templar Code cipher. Decode.f<span>r</span> has a [nice solver](https://www.dcode.fr/templars-cipher).
 
 Decrypting gives the flag.
 
 ### The Invisibles
-> Attachments: The_invisibles.png
-
 Yet another basic substitution cipher, using the Arthurs and the Invisibles alphabet. Decode.f<span>r</span> has a [nice solver](https://www.dcode.fr/arthur-invisibles-cipher).
 
 Decrypting gives the flag.
 
 ### Stupid Cupid
-> Attachments: stupid_cupid.txt
-
 Googling `Cupid cipher` gives us some results about how James Madison hid his plaintexts in some text using numbers.
 
 When we count the amount of numbers in the ciphertext at the top of the file, we find that it is equal to the amount of rows there are, and the highest number in the ciphertext does not exceed the number of columns :eyes:
@@ -138,11 +122,6 @@ Then, the second number in the ciphertext is `12`. The character at the second r
 Continue to get the flag.
 
 ### My Own Encoding
-
-> Here's an encoding challenge. This doesnt really test your technical skills, but focuses on your critical thinking.
-I wrote my own encoding scheme. Can you decode it?"
-Attachments: secretmessage.jpg
-
 We are presented with 16 5x5 grids, each with a single box blacked out.
 Shot in the dark.
 We reason that since it is 5x5, there are 25 choices which is close enough to 26 (letters of the alphabet).
@@ -154,9 +133,6 @@ Doing so, we get `MHBDI...`, until we reach the 12th box. There is no marking he
 Thus, our previously transcribed "plaintext" has to be Caesar shifted by 1 to get the flag, easy enough.
 
 ### BabyRSA
-> We've intercepted this RSA encrypted message 2193 1745 2164 970 1466 2495 1438 1412 1745 1745 2302 1163 2181 1613 1438 884 2495 2302 2164 2181 884 2302 1703 1924 2302 1801 1412 2495 53 1337 2217
-We know it was encrypted with the following public key e: 569 n: 2533
-
 Questionable RSA. I didn't know what to do with the numbers since they were spaced out. I finally guessed they were individual characters of the flag and successfully decrypted them as such.
 
 Using [factordb](http://factordb.com/), we can factor `n` into `17 * 149`, obviously the p and q for this challenge.
@@ -209,9 +185,7 @@ chall = "2193 1745 2164 970 1466 2495 1438 1412 1745 1745 2302 1163 2181 1613 14
 list(map(lambda x: decrypt(int(x)), chall))
 ```
 
-### CryptoHole 
-> Here's a lot of crypto challenges all packed into one. To start, unzip the starting zip file and enter NeverLANCTF as the password.
-
+### CryptoHole
 Basically just a bunch of ciphers. Each level has a chal.txt which contains an encrypted password, and a password-protected zip file for the next layer.
 
 Here is the order:
@@ -272,10 +246,6 @@ for what could be`
 - Decrypt the OTP to get the flag
 
 ### It is like an onion of secrets
->This one has layers like an onion.
-Just don't let it make you cry..
-Attachments: Much_Confused.png
-
 We get download the png image. In it is a funky lookin dog with no flag :(
 
 We guess it is LSB encrypted since Binwalk doesn't return anything useful.
@@ -291,35 +261,23 @@ Now we guess again and decrypt it using the `Variant Beaufort Vigenere cipher` (
 
 ## PCAP
 ### Unsecured Login
-> We caught someone logging into their website, but they didn't use https!
-
 You don't even need Wireshark, just use `strings mysite.pcap | grep flag`
 
 ### Unsecured Login2
-> We caught someone logging into their website, but they didn't check their links when submitting data!
-
 You don't even need Wireshark, just use `strings mysite2.pcap | grep flag`
 
 ### FTP
-> It looks like someone forgot to use a secure version of ftp...
-
 You don't even need Wireshark, just use `strings ftp.pcap | grep flag`
 If you want to, you can right click on any ftp packet and follow the tcp stream. If there's no flag, then move on to the next stream.
 
 ### Teletype Network
-> It looks like someone hasn't upgraded to ssh yet...
-
 You don't even need Wireshark, just use `strings telnet.pcap | grep flag`
 
 ### hidden-ctf-on-my-network
-> 
+You don't even need Wireshark, just use `strings telnet.pcap | grep flag`
 
 ## Forensics
 ### Listen to this
-> You hear that?
-> -ps This guy might be important
-> Attachments: HiddenAudio.mp3
-
 When we listen to the mp3 initially, we can hear a faint beeping in the background. This sounds like Morse code, so let's find an easy way to transcribe it to dits and dahs (radio speak for dots and dashes).
 
 We open it up in Audacity, and notice there are two tracks. Let's split them up:
@@ -327,8 +285,6 @@ We open it up in Audacity, and notice there are two tracks. Let's split them up:
 
 
 ### Open Backpack
-> There's more to this picture.jpg file
-
 The image says something is unzipped...
 Let's try `binwalk`.
 
@@ -340,7 +296,7 @@ Binwalk extracts two files, a zip and a file called `flag.png`, which has the fl
 
 ## Programming
 ### DasPrime
-> My assignments due and I still don't have the answer! Can you help me fix my Python script... and also give me the answer? I need to make a prime number generator and find the 10,497th prime number. I've already written a python script that kinda works... can you either fix it or write your own and tell me the prime number?
+We want to find the 10947th prime number. We are given the following algorithm:
 ```python
 import math
 def main():
@@ -401,7 +357,7 @@ for i in range(10948):
     x.append(next(generator))
 ```
 
-We access the 10497th element of `x` to get the flag.
+We access the 10497th element of `x` to get the flag (x[10496]).
 
 ### password_crack
 Simple MD5 brute force. I got the author names from the Discord server.
@@ -490,8 +446,6 @@ while True:
 ```
 
 ### Evil
-> You have been tasked with stealing sensitive data from an evil crime lord. Do you have what it takes?
-> 
 > ssh neverlan@medusa.neverlanctf.com -p 3333
 > password: eyesofstone
 
@@ -507,16 +461,12 @@ The content of the zip file is the flag.
 
 ## Recon
 ### Front page of the Internet
-> Whoops... I leaked a flag on a public website
-
 The "front page of the Internet" is Reddit.
 The author is `ZestyFE`, so we guess that he has a Reddit account under the same name.
 
 We navigate to `/u/ZestyFE` on Reddit, and find the flag in one of ZestyFE's comments.
 
 ### The Big Stage
-> One time we keynoted @saintcon... I think I remember hiding a flag in our pres
-
 We search up SaintCon keynotes and find that NeverLAN keynoted in 2018
 
 Unfortunately the SaintCon site is not 100% functional so we're stuck...
@@ -529,15 +479,11 @@ The flag is right next to a picture of Rick Astley :p
 
 
 ### The Link
-> NeverLAN's secret Track 2
-
 During the competition there were streams for music and the like. If we go under their music tab and select track #2 we see a YouTube video.
 
 Exploring the comments reveals a flag that someone commented.
 
 ### Thats just Phreaky
-> The first of many stories that have been told. 01 September 2017 | 14:01
-
 We Google for `01 September 2017 | 14:01 phreak`.
 
 We find the first [Darknet Diaries episode](https://darknetdiaries.com/episode/1/).
@@ -546,8 +492,7 @@ By some stroke of pure geniosity we right click to view the source code of the s
 
 ## Web
 ### Cookie Monster
-> This website is hiding the flag. You'll need to use your browser's tools to solve the challenge.
-https://challenges.neverlanctf.com:1110
+> https://challenges.neverlanctf.com:1110
 
 The title hints that it has something to do with cookies.
 
@@ -604,7 +549,7 @@ Password: asdf
 Return to the home page for the flag.
 
 ### Follow Me
-> Let's start here. https://7aimehagbl.neverlanctf.com
+> https://7aimehagbl.neverlanctf.com
 
 This website redirects so many times your browser just gives up. We can use Python's `requests` module and the `follow_redirects=False` option:
 ```python
