@@ -4,7 +4,7 @@ Start: Sat, Feb 8 2020, 10:00 AM EST
 End: Tue, Feb 11 2020, 7:00 PM EST
 
 # Placing
-- Schools: 2nd (max score)
+- Schools: 1st (max score)
 - General: 32nd
 
 # Review
@@ -49,7 +49,7 @@ I didn't like how they did not announce challenge drops before they actually rel
 | [Stop the Bot](#stop-the-bot) | Web | 50 |
 | [SQL Breaker](#sql-breaker) | Web | 50 |
 | [SQL Breaker 2](#sql-breaker-2) | Web | 75 |
-| [Follow Me!](#follow-me!) | Web | 100 |
+| [Follow Me](#follow-me!) | Web | 100 |
 | [Browser Bias](#browser-bias) | Web | 150 |
 | [Chicken Little 1](#chicken-little-1) | Chicken Little | 35 |
 | [Chicken Little 2](#chicken-little-2) | Chicken Little | 36 |
@@ -209,12 +209,8 @@ chall = "2193 1745 2164 970 1466 2495 1438 1412 1745 1745 2302 1163 2181 1613 14
 list(map(lambda x: decrypt(int(x)), chall))
 ```
 
-
-### CryptoHole
-
-
-### It is like an onion of secrets
->
+### CryptoHole 
+> Here's a lot of crypto challenges all packed into one. To start, unzip the starting zip file and enter NeverLANCTF as the password.
 
 Basically just a bunch of ciphers. Each level has a chal.txt which contains an encrypted password, and a password-protected zip file for the next layer.
 
@@ -275,6 +271,8 @@ beauty of the baud.  We make use of a service already existing without paying
 for what could be`
 - Decrypt the OTP to get the flag
 
+### It is like an onion of secrets
+
 ## PCAP
 ### Unsecured Login
 ### Unsecured Login2
@@ -295,12 +293,15 @@ We open it up in Audacity, and notice there are two tracks. Let's split them up:
 
 
 ### Open Backpack
->
+> There's more to this picture.jpg file
 
 The image says something is unzipped...
 Let's try `binwalk`.
 
+Command: `binwalk -e openbackpack.jpg`
+
 Binwalk extracts two files, a zip and a file called `flag.png`, which has the flag of course.
+
 ### Look into the past
 
 ## Programming
@@ -370,8 +371,33 @@ We access the 10497th element of `x` to get the flag.
 
 ### password_crack
 Simple MD5 brute force. I got the author names from the Discord server.
+More on this later when they publish the challenges again (they took them down).
 
 ### Robot Talk
+
+
+We just have to convert 5 base64 values to ASCII.
+
+I used pwntools, a pretty neat library for tasks like these.
+
+```python
+from pwn import *
+import base64
+
+conn = remote("challenges.neverlanctf.com", 1120)
+
+
+for i in range(5):
+	print(conn.recvuntil("decrypt: "))
+	x = conn.recv().strip()
+	print(x)
+	y = base64.b64decode(x)
+	print(y)
+	conn.send(y)
+	print(conn.recvline())
+
+print(conn.recv())
+```
 ### BitsnBytes
 ### Evil
 
@@ -385,8 +411,34 @@ The author is `ZestyFE`, so we guess that he has a Reddit account under the same
 We navigate to `/u/ZestyFE` on Reddit, and find the flag in one of ZestyFE's comments.
 
 ### The Big Stage
+> One time we keynoted @saintcon... I think I remember hiding a flag in our pres
+
+We search up SaintCon keynotes and find that NeverLAN keynoted in 2018
+
+Unfortunately the SaintCon site is not 100% functional so we're stuck...
+
+Then we guses that keynoting a conference is pretty cool and they must have posted something to commemorate the event on [their Twitter](https://twitter.com/NeverLanCTF).
+
+They actually link us [their slides](https://twitter.com/NeverLanCTF/status/1044640438131388422)
+
+The flag is right next to a picture of Rick Astley :p
+
+
 ### The Link
+> NeverLAN's secret Track 2
+
+During the competition there were streams for music and the like. If we go under their music tab and select track #2 we see a YouTube video.
+
+Exploring the comments reveals a flag that someone commented.
+
 ### Thats just Phreaky
+> The first of many stories that have been told. 01 September 2017 | 14:01
+
+We Google for `01 September 2017 | 14:01 phreak`.
+
+We find the first [Darknet Diaries episode](https://darknetdiaries.com/episode/1/).
+
+By some stroke of pure geniosity we right click to view the source code of the site and the flag is at the bottom.
 
 ## Web
 ### Cookie Monster
@@ -447,7 +499,7 @@ Password: asdf
 
 Return to the home page for the flag.
 
-### Follow Me!
+### Follow Me
 > Let's start here. https://7aimehagbl.neverlanctf.com
 
 This website redirects so many times your browser just gives up. We can use Python's `requests` module and the `follow_redirects=False` option:
@@ -487,6 +539,7 @@ We set that as our User-Agent using Python's `requests`, and request the home pa
 
 ## Chicken Little
 ### Chicken Little 1
+
 ### Chicken Little 2
 ### Chicken Little 3
 ### Chicken Little 4
