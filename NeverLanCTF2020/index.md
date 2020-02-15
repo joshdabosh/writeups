@@ -278,10 +278,33 @@ You don't even need Wireshark, just use `strings telnet.pcap | grep flag`
 
 ## Forensics
 ### Listen to this
-When we listen to the mp3 initially, we can hear a faint beeping in the background. This sounds like Morse code, so let's find an easy way to transcribe it to dits and dahs (radio speak for dots and dashes).
+When we listen to the mp3 initially, we can hear a faint beeping in the background. This sounds like Morse code, so let's find an easy way to transcribe it to text dits and dahs (radio speak for dots and dashes).
 
-We open it up in Audacity, and notice there are two tracks. Let's split them up:
+We open it up in Audacity, and notice there are two tracks. Let's switch to spectrogram view. We can do this by clicking on the arrow pointing downwards next to the track name, then clicking `Spectrogram`:
+![](https://i.imgur.com/jrIw77T.png)
 
+If we zoom in on the beginning of the track, we can see that the Morse code is in the second track:
+![](https://i.imgur.com/FaffDFU.png)
+
+One huge issue right now is that the Morse code is "covered" by the actual vocals of the track. I was stuck on this portion for a while.
+
+Let's split the tracks to mono using the track settings.
+
+Then, we subtract the original track from the track with morse code. After that, we'll be able to clearly see the morse code in spectrogram view.
+
+First, we select one track, and invert it (`Effect > Invert`). Then, we select both tracks and mix them together (`Tracks > Mix > Mix and Render`).
+
+It's still a bit hard to see, so let's change the coloring.
+
+We open up track settings and then select `Spectrogram Settings`. We change the color range to 20 dB instead of 80 dB (decibels).
+
+The result is morse code. Now all we have to do is open up a text editor, copy the morse code down, and convert it to text using an online tool (:
+
+The short ones are dits and the long ones are dahs. I usually represent the short ones with `.` and the long ones with `-`, which is a format most online morse-to-text tools use as well.
+
+![](https://i.imgur.com/nMOCs8o.png)
+
+That would be the first letter in the text.
 
 
 ### Open Backpack
