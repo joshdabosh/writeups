@@ -647,7 +647,7 @@ We find the User-Agent for Contiki as `Contiki/1.0 (Commodore 64; http://dunkels
 We set that as our User-Agent using Python's `requests`, and request the home page, which gives us the flag.
 
 ## Chicken Little
-We basically have to ssh onto a server and retrieve the flag from it. We start from Chicken Little 1. We use the flag from Chicken Little 1 as the password for the ssh onto Chicken Little 2.
+We basically have to ssh onto a server and retrieve the flag from it. We start from Chicken Little 1. We use the flag from Chicken Little 1 as the password for the ssh onto Chicken Little 2, etc.
 
 ### Chicken Little 1
 Use an `ls` and find `Welcome.txt`.
