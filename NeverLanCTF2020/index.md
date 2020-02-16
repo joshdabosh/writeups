@@ -83,7 +83,28 @@ As you can see, `r1`, `r2`, `r3` and so (till `r38`) on seem to be holding integ
 Without even looking at the rest of the program, we can find the flag by converting all the values from `r1` through `r38` to letters.
 
 ### Script Kiddie
+The "encrypted" `encrypted_db` is really just a bunch of base64 strings, which are then encoded using hex.
+
+We can decode by using this script:
+```python
+from base64 import b64decode
+
+f = open("encrypted_db").read().strip().replace("\n", "").decode("hex")
+
+f = b64decode(f.strip())
+
+print(re.findall(r'flag{.+?}', f))
+```
+
+Running the script gives the flag.
+
 ### Reverse Engineer
+Let's open it up in Ghidra.
+We scroll until we find a cool looking function called `print`. It seems to be building a string from hex values.
+
+![](https://i.imgur.com/qoHzJPw.png)
+
+Converting all those from hex to ASCII gives the flag.
 
 ## Cryptography
 ### Pigsfly
@@ -316,6 +337,22 @@ Command: `binwalk -e openbackpack.jpg`
 Binwalk extracts two files, a zip and a file called `flag.png`, which has the flag of course.
 
 ### Look into the past
+We download and unzip it. It seems they just compressed a system's directories from / and gave it to us...
+
+We `cd` into the home directory for the user (`/home/User/`). Nothing seems interesting except for a `.bash_history` file, which reveals that they encrypted a flag using a concatenation of 3 passwords. We have to find the 3 passwords to decrypt the encrypted flag.
+
+Password 1:
+It's in an image in `~/Pictures`. We use strings and find the signature for `steghide`. We can use `steghide extract -sf doggo.jpeg`. It takes a bit more guesswork to guess that there is no password. The password is in the extracted text file.
+
+Password 2:
+The password is the password to the user named `user`. We read `/etc/shadow/`, and find the password.
+
+Password 3:
+We first uncompress the `table.db.tar.gz` inside `/opt`.
+
+Let's get everything from `table.db`: `sqlite3 table.db "SELECT * FROM passwords"`. This gives us the third password.
+
+Now that we have all 3 passwords, we can decrypt the encrypted text file using `openssl enc -aes-256-cbc -d -in flag.txt.enc -out file.txt`. We supply the concatenation of the 3 passwords, and we read `file.txt` for the decrypted flag.
 
 ## Programming
 ### DasPrime
@@ -610,14 +647,41 @@ We find the User-Agent for Contiki as `Contiki/1.0 (Commodore 64; http://dunkels
 We set that as our User-Agent using Python's `requests`, and request the home page, which gives us the flag.
 
 ## Chicken Little
+We basically have to ssh onto a server and retrieve the flag from it. We start from Chicken Little 1. We use the flag from Chicken Little 1 as the password for the ssh onto Chicken Little 2.
+
 ### Chicken Little 1
+Use an `ls` and find `Welcome.txt`.
+Read the file for the flag.
 
 ### Chicken Little 2
+Use an `ls -a` (-a flag to show hidden files) and find `.chicken.txt`.
+Read the file for the flag.
+
 ### Chicken Little 3
+We find `BAWK.txt` with a bunch of "BAWK"s in it. Knowing the password format we guess that this password also has a `-` in it, so we grep for `-` in the file for the flag.
+
 ### Chicken Little 4
+We find a binary file with the flag presumably hidden in it. We can use `strings` to first extract the printable strings, then grep for `-` in it, which gives the flag.
+
 ### Chicken Little 5
+We can use `binwalk -e` to extract files from the file, giving us a file with the flag.
+
 ### Chicken Little 6
+We can use `scp` to transfer the file to our local machine since `curl` was removed.
+
+`scp -P 3333 level5@44.233.149.141:~/chicken-little.png .`
+
+The flag is visible in the image.
+
 ### Chicken Little 7
+We are told we need to find the password to the user `level7` on the system. We read `/etc/shadow` for the `level7` password hash.
+
+
+We generate a wordlist of all possible 4-character combinations using `crunch 1 4 > pass.txt`.
+
+We can use `hashcat -m 1800 -a 0 h.hash pass.txt` to eventually break the hash (it was supposed to take ~15 minutes).
+
+I used a brute-force script on a remote server because my 2011 mac really did not like running SHA512 a lot of times.
 
 ## Trivia
 ### Milk Please
