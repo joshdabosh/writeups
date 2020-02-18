@@ -62,7 +62,7 @@ I didn't like how they did not announce challenge drops before they actually rel
 | [Professional Guessing](#professional-guessing) | Trivia | 10 |
 | [Base 2^6](#base-2^6) | Trivia | 10 |
 | [AAAAAAAAAAAAAA! I hate CVEs](#aaaaaaaaaaaaaa!-i-hate-cves) | Trivia | 20 |
-| [Rick Rolled by the NSA???](#rick-rolled-by-the-nsa???) | Trivia | 50 |
+| [Rick Rolled by the NSA???](#rick-rolled-by-the-nsa) | Trivia | 50 |
 
 ## Reverse Engineering
 ### Adobe Payroll
@@ -704,7 +704,7 @@ An article defines the description for the term "password cracking", which is th
 
 We Google `If flag is enabled in sudoers cve` and find [this site](https://www.exploit-db.com/exploits/47995), which has the flag in it.
 
-### Rick Rolled by the NSA???
+### Rick Rolled by the NSA
 > This CVE Proof of concept Shows NSA.go<span>v</span> playing "Never Gonna Give You Up," by 1980s heart-throb Rick Astley.
 Use the CVE ID for the flag. flag{CVE-?????????}
 
