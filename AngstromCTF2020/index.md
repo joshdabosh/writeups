@@ -8,10 +8,6 @@ I helped organize this CTF along with peers from Montgomery Blair HS. It was pre
 
 These are the writeups to the challenges I wrote.
 
-
-![](https://i.imgur.com/Y5m6VDV.png)
-^ sums up our CTF.
-
 # Challenges
 | Challenge Name | Category | Points |
 |:-:|:-:|:-:|
@@ -25,3 +21,11 @@ These are the writeups to the challenges I wrote.
 |[secret agents](web/secret-agents.md)|web|110|
 |[keysar](crypto/keysar.md)|crypto|40|
 |[one time bad](crypto/one-time-bad.md)|crypto|100|
+
+
+
+
+
+![](https://i.imgur.com/Y5m6VDV.png)
+
+^ sums up our CTF.
