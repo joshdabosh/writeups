@@ -1,0 +1,49 @@
+{
+	"index": {
+		"notes": ["overview"]
+	},
+	"categories": ["misc", "web", "crypto"],
+	"columns": ["category", "points"],
+	"challenges": {
+		"ws1": {
+			"category": "misc",
+			"points": "30"
+		},
+		"ws2": {
+			"category": "misc",
+			"points": "80"
+		},
+		"PSK": {
+			"category": "misc",
+			"points": "90"
+		},
+		"msd": {
+			"category": "misc",
+			"points": "140"
+		},
+		"shifter": {
+			"category": "misc",
+			"points": "160"
+		},
+		"ws3": {
+			"category": "misc",
+			"points": "180"
+		},
+		"consolation": {
+			"category": "web",
+			"points": "50"
+		},
+		"secret agents": {
+			"category": "web",
+			"points": "110"
+		},
+		"keysar": {
+			"category": "crypto",
+			"points": "40"
+		},
+		"one time bad": {
+			"category": "crypto",
+			"points": "100"
+		}
+	}
+}
