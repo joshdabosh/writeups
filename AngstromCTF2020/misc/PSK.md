@@ -2,9 +2,13 @@
 Misc, 90
 
 > My friend sent my yet another mysterious recording...
+
 > He told me he was inspired by PicoCTF 2019 and made his own transmissions. I've looked at it, and it seems to be really compact and efficient.
+
 > Only 31 bps!!
+
 > See if you can decode what he sent to me. It's in actf{} format
+
 > Linked: transmission.wav
 
 From the description, we can pretty much guess that the protocol used was PSK31.
