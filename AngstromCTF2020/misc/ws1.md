@@ -2,7 +2,7 @@
 Misc, 30
 
 > Find my password from this recording (:
-
+>
 > Linked: recording.pcapng
 
 For some strange reason this challenge had more solves than the sanity check...

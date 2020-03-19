@@ -2,7 +2,7 @@
 Web, 50
 
 > I've been feeling down lately... Cheer me up!
-
+>
 > Linked: https://consolation.2020.chall.actf.co
 
 50 points, should be relatively easy.

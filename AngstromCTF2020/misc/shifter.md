@@ -2,9 +2,9 @@
 Misc, 160
 
 > What a strange challenge...
-
+>
 > It'll be no problem for you, of course!
-
+>
 > nc misc.2020.chall.actf.co 20300
 
 Gotta admit, this description definetely will not win any creativity awards.

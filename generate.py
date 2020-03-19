@@ -104,7 +104,7 @@ if overwrite:
         f.write(index_template)
 
 else:
-    if not os.path.exists(os.path.join(name, "index.md")):
+    if not os.path.exists(os.path.join(name, "README.md")):
             with open(os.path.join(name, "index.md"), "w") as f:
                 f.write(index_template)
 
