@@ -33,7 +33,7 @@ challenges_header = "| " + " | ".join(columns) + " |"
 
 
 index_template = f"""
-# {name}
+# {name.strip('/')}
 
 {notes}
 
@@ -100,13 +100,11 @@ for chall, amt in challenges.items():
 
 
 if overwrite:
-    with open(os.path.join(name, name.strip('/')+".md"), "w") as f:
+    with open(os.path.join(name, "index.md"), "w") as f:
         f.write(index_template)
 
-    
-
-
-
-
-
+else:
+    if not os.path.exists(os.path.join(name, "index.md")):
+            with open(os.path.join(name, "index.md"), "w") as f:
+                f.write(index_template)
 
