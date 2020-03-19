@@ -1,4 +1,3 @@
-
 # AngstromCTF 2020
 Start: Friday, Mar 13 2020, 8:00 PM EDT
 End: Wed, Mar 18 2020, 8:00 PM EDT
@@ -7,6 +6,8 @@ End: Wed, Mar 18 2020, 8:00 PM EDT
 I helped organize this CTF along with peers from Montgomery Blair HS. It was pretty fun. It also went down a lot.
 
 These are the writeups to the challenges I wrote.
+
+
 ![](https://i.imgur.com/Y5m6VDV.png)
 ^ sums up our CTF.
 
