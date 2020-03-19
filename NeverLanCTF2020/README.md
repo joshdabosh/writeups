@@ -4,8 +4,10 @@ Start: Sat, Feb 8 2020, 10:00 AM EST
 End: Tue, Feb 11 2020, 7:00 PM EST
 
 # Placing
-- Schools: 1st (max score)
-- General: 32nd
+- Students: 1st (max score)
+  - I was 2nd in screenshots but I got the first place prize email
+  - Probably because the other team got DQ'd or weren't actually a student team
+- General: 31st
 
 # Review
 This weekend I played in NeverlanCTF as the solo team `bosh`. The challenges were alright, although many of them were just guessing.
@@ -421,7 +423,6 @@ We access the 10497th element of `x` to get the flag (x[10496]).
 
 ### password_crack
 Simple MD5 brute force. I got the author names from the Discord server.
-More on this later when they publish the challenges again (they took them down).
 
 ### Robot Talk
 We just have to convert 5 base64 values to ASCII.
