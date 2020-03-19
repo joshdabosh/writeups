@@ -16,6 +16,7 @@ Let's disable that. For some browsers even the "preserve log" option does not wo
 Now, we just click it again and the flag is displayed.
 
 Flag: `actf{you_would_n0t_beli3ve_your_eyes}`
+
 (if you didn't notice, the flag was printed from `iftenmillionfireflies.js` :D)
 
 I've heard that some people solved by overwhelming the console through using a loop to click the button. Also, I repeatedly obfuscated the source code of the js file in order to get people to solve it using the console.

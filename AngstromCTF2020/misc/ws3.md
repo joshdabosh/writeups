@@ -41,8 +41,12 @@ Let's check out `34/`. We find a commit "body" (or whatever it's called).
 We can use `git show <hash>` to print the contents of the body. Make sure to use `foldername+bodyname` as the hash, as that's just how git works.
 
 ![](https://i.imgur.com/uCE3fO5.png)
+
+
 Oh... welp.
-Let's try another one.![](https://i.imgur.com/QpV0WZZ.png)
+Let's try another one.
+
+![](https://i.imgur.com/QpV0WZZ.png)
 
 Voila, there's a flag.jpg in this commit. Let's save the contents:
 ![](https://i.imgur.com/4zB7fvQ.png)

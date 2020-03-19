@@ -16,6 +16,7 @@ After setting it up, we play back the transmission using FLDIGI's `File > Audio 
 Now, just select the stream of data in the waterfall display and FLDIGI will do the rest.
 
 ![](https://i.imgur.com/QdcJZB3.png)
+
 (the waterfall display is where the white space is, no idea why it isn't showing up).
 
 

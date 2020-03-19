@@ -1,5 +1,6 @@
 # AngstromCTF 2020
 Start: Friday, Mar 13 2020, 8:00 PM EDT
+
 End: Wed, Mar 18 2020, 8:00 PM EDT
 
 ## Overview

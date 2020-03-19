@@ -11,6 +11,7 @@ Anyway, this was the generic "wireshark data capture" challenge.
 We open up the capture in Wireshark, and scroll a bit.
 
 Eventually, we find an interesting POST request:
+
 ![](https://i.imgur.com/3AyCs9c.png)
 
 The flag is visible in the form data, but we have to un-urlencode it.
