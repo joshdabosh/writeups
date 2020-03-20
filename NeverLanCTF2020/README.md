@@ -4,7 +4,7 @@ Start: Sat, Feb 8 2020, 10:00 AM EST
 End: Tue, Feb 11 2020, 7:00 PM EST
 
 # Placing
-- [Students](students_scoreboard.png): 1st (max score)
+- [Students](student_scoreboard.png): 1st (max score)
 - General: 31st
 
 # Review
