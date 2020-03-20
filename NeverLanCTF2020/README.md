@@ -4,9 +4,7 @@ Start: Sat, Feb 8 2020, 10:00 AM EST
 End: Tue, Feb 11 2020, 7:00 PM EST
 
 # Placing
-- Students: 1st (max score)
-  - I was 2nd in screenshots but I got the first place prize email
-  - Probably because the other team got DQ'd or weren't actually a student team
+- [Students](students_scoreboard.png): 1st (max score)
 - General: 31st
 
 # Review
