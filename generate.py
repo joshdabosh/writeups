@@ -55,8 +55,12 @@ for key, val in challenges.items():
     
     for i in range(len(comparisonGroup)):
         compareTo = comparisonGroup[i]
-        
-        if int(challenges[compareTo]["points"]) > int(val["points"]):
+
+        try:
+            if int(challenges[compareTo]["points"]) > int(val["points"]):
+                namesCategory[val["category"]].insert(i, key)
+                break
+        except KeyError:
             namesCategory[val["category"]].insert(i, key)
             break
 
@@ -88,16 +92,13 @@ for chall, amt in challenges.items():
 
     if overwrite:
         with open(fname, "w") as f:
-            f.write(f"# {chall}\n{amt['category'].capitalize()}, {amt['points']}")
+            f.write(f"# {chall}\n{amt['category'].capitalize()}")#, {amt['points']}" + )
 
     else:
         if not os.path.exists(fname):
             with open(fname, "w") as f:
-                f.write(f"# {chall}\n{amt['category'].capitalize()}, {amt['points']}")
-
-
-
-
+                f.write(f"# {chall}\n{amt['category'].capitalize()}")#, {amt['points']}")
+                
 
 if overwrite:
     with open(os.path.join(name, "index.md"), "w") as f:
@@ -107,4 +108,6 @@ else:
     if not os.path.exists(os.path.join(name, "README.md")):
             with open(os.path.join(name, "index.md"), "w") as f:
                 f.write(index_template)
+
+
 

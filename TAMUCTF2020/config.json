@@ -1,0 +1,45 @@
+{
+	"index": {
+		"notes": ["overview", "notable quotes"]
+	},
+	"categories": ["misc", "web", "crypto", "network_pentest", "rev"],
+	"columns": ["category"],
+	"challenges": {
+		"LISTEN": {
+			"category": "network_pentest"
+		},
+		"SIGMA": {
+			"category": "crypto"
+		},
+		"VAULT": {
+			"category": "rev"
+		},
+		"CORRUPTED_DISK": {
+			"category": "misc"
+		},
+		"WOOF_WOOF": {
+			"category": "misc"
+		},
+		"BLIND": {
+			"category": "misc"
+		},
+		"RSAPWN": {
+			"category": "misc"
+		},
+		"ALCAPONE": {
+			"category": "misc"
+		},
+		"GEOGRAPHY": {
+			"category": "misc"
+		},
+		"CREDITS": {
+			"category": "web"
+		},
+		"PASSWORD_EXTRACTION": {
+			"category": "web"
+		},
+		"FILESTORAGE": {
+			"category": "web"
+		}
+	}
+}
