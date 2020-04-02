@@ -8,6 +8,8 @@ Aplet and I got [first](scoreboard.png) :)
 
 Due to the varying kinds of challenges I'll just be writing up 3 webs.
 
+And the fact that my left wrist is sore, what the heck. :(
+
 # Challenges
 | Challenge Name | Category | Points |
 |:-:|:-:|:-:|
