@@ -92,12 +92,12 @@ for chall, amt in challenges.items():
 
     if overwrite:
         with open(fname, "w") as f:
-            f.write(f"# {chall}\n{amt['category'].capitalize()}")#, {amt['points']}" + )
+            f.write(f"# {chall}\n{amt['category'].capitalize()}, {amt['points']}")
 
     else:
         if not os.path.exists(fname):
             with open(fname, "w") as f:
-                f.write(f"# {chall}\n{amt['category'].capitalize()}")#, {amt['points']}")
+                f.write(f"# {chall}\n{amt['category'].capitalize()}, {amt['points']}")
                 
 
 if overwrite:

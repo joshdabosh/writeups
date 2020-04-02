@@ -1,0 +1,21 @@
+{
+	"index": {
+		"notes": ["overview"]
+	},
+	"categories": ["web"],
+	"columns": ["category", "points"],
+	"challenges": {
+		"Beep Boop Bot": {
+			"category": "web",
+			"points": "50"
+		},
+		"Snickerdoodle": {
+			"category": "web",
+			"points": "100"
+		},
+		"No Signature, No Problem": {
+			"category": "web",
+			"points": "200"
+		}
+	}
+}
