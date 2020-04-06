@@ -110,6 +110,7 @@ I quickly rejoined with a new account, h_yi. I ended up getting banned again and
 The admins got so annoyed when we weren't satisfied with their lousy excuses (more on that later) that they decided to revert to "OK BOOMER"s, switching to conversing in Hindi, and even sending and tolerating blatant slurs against us (Asians).
 
 "OK BOOMERS":
+
 ![](https://i.imgur.com/PNDW0uo.png)
 
 ![](https://i.imgur.com/nLxLcaH.png)
