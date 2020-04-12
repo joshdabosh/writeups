@@ -2,8 +2,7 @@
 
 b1c placed 3rd.
 
-We got stuck on some guess challs which were annoying.
-Also, there were 29 occurences of the word "guess" in their official writeups repo :thinking:.
+We mostly got stuck on a certain guess challenge which was annoying.
 
 Don't feel like doing detailed writeups but here's one for a decent challenge, `Benford's Law Firm, LLC`.
 
