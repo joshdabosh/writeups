@@ -1,0 +1,27 @@
+{
+	"index": {
+		"notes": ["overview"]
+	},
+	"categories": ["web", "OSINT", "crypto"],
+	"columns": ["category"],
+	"challenges": {
+		"I don't like needles": {
+			"category": "web"
+		},
+		"QR Generator": {
+			"category": "web"
+		},
+		"Fire/place": {
+			"category": "web"
+		},
+		"Groovin and Cubin": {
+			"category": "OSINT"
+		},
+		"Catography": {
+			"category": "OSINT"
+		},
+		"Rainbow Vomit": {
+			"category": "crypto"
+		}
+	}
+}

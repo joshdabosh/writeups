@@ -7,7 +7,6 @@ name = sys.argv[1]
 
 try:
     overwrite = int(sys.argv[2])
-    assert overwrite == 1
     
 except:
     overwrite = 0
@@ -76,7 +75,7 @@ for cat, challs in namesCategory.items():
     for chall in challs:
         for col in columns:
             if col == "Challenge Name":
-                toAdd += f"|[{chall}]({cat+'/'+chall.replace(' ', '-')+'.md'})"
+                toAdd += f"|[{chall}]({cat+'/'+chall.replace(' ', '-').replace('/', '-')+'.md'})"
                 continue
 
             toAdd += "|" + challenges[chall][col.lower()]
@@ -87,13 +86,17 @@ for cat, challs in namesCategory.items():
 
 
 for chall, amt in challenges.items():
-    chall = chall.replace(" ", "-")
+    chall = chall.replace(" ", "-").replace("/", "-")
     fname = os.path.join(name, amt['category'].lower(), chall+".md")
 
-    if overwrite:
+    if overwrite == 1:
         with open(fname, "w") as f:
             f.write(f"# {chall}\n{amt['category'].capitalize()}, {amt['points']}")
 
+    if overwrite == 2:
+        with open(fname, "w") as f:
+            f.write(f"# {chall}\n{amt['category'].capitalize()}")
+            
     else:
         if not os.path.exists(fname):
             with open(fname, "w") as f:
