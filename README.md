@@ -6,11 +6,19 @@ This is where I store writeups for CTF challenges that I've either solved, help 
 
 ## 2020
 [AngstromCTF](AngstromCTF2020)
+
 [DawgCTF](DawgCTF2020)
+
 [DeepCTF](DeepCTF2020)
+
 [HackTM](HackTM2020)
+
 [HouseplantCTF](HouseplantCTF2020)
+
 [MidnightSunCTF](MidnightSunCTF2020)
+
 [NeverLanCTF](NeverLanCTF2020)
+
 [TAMUCTF](TAMUCTF2020)
+
 [VirtualCodeCup](VirtualCodeCup2020)
