@@ -5,20 +5,22 @@ This is where I store writeups for CTF challenges that I've either solved, help 
 [generate.py](generate.py) is some quick code I threw together to provide some structure to writeups. Use at your own risk.
 
 ## 2020
-[AngstromCTF](AngstromCTF2020)
+[AngstromCTF](2020-AngstromCTF)
 
-[DawgCTF](DawgCTF2020)
+[DawgCTF](2020-DawgCTF)
 
-[DeepCTF](DeepCTF2020)
+[DeepCTF](2020-DeepCTF)
 
-[HackTM](HackTM2020)
+[HackTM](2020-HackTM)
 
-[HouseplantCTF](HouseplantCTF2020)
+[HouseplantCTF](2020-HouseplantCTF)
 
-[MidnightSunCTF](MidnightSunCTF2020)
+[MidnightSunCTF](2020-MidnightSunCTF)
 
-[NeverLanCTF](NeverLanCTF2020)
+[NeverLanCTF](2020-NeverLanCTF)
 
-[TAMUCTF](TAMUCTF2020)
+[TAMUCTF](2020-TAMUCTF)
 
-[VirtualCodeCup](VirtualCodeCup2020)
+[VirtualCodeCup](2020-VirtualCodeCup)
+
+[Zh3r0 PreCTF](2020-Zh3r0PreCTF)
