@@ -24,3 +24,5 @@ This is where I store writeups for CTF challenges that I've either solved, help 
 [VirtualCodeCup](2020-VirtualCodeCup)
 
 [Zh3r0 PreCTF](2020-Zh3r0PreCTF)
+
+[SharkyCTF](2020-SharkyCTF)
