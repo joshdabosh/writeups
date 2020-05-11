@@ -1,7 +1,7 @@
 # SharkyCTF 2020
 I basically didn't work on this CTF much and spent my time doing other stuff :).
 
-RGBsec got 3rd.
+RGBsec got ~~3rd~~ 4th my b.
 
 
 ## Pain in the ass
