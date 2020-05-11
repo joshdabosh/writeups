@@ -114,7 +114,7 @@ We can implement an attack following this thread: [https://bugs.python.org/issue
 
 It's important to use a version of Python <= 3.7.2 for the solve script, which still has the bug.
 
-I got stuck here for a while, trying every combination of the attack with the url. Eventually bAse figures out you have to put the unicode+@+localhost at the end of the netloc AND the endpoint, not just at the end of the netloc.
+I got stuck here for a while, trying every combination of the attack with the url. Eventually bAse figures out you have to put the unicode+@+localhost at the end of the ENDPOINT, not at the end of the netloc or anywhere else.
 
 Also, keep the `Authorization` header unless you want a 403.
 
