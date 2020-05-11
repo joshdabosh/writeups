@@ -1,6 +1,6 @@
 # writeups
 
-This is where I store writeups for CTF challenges that I've either solved, help solve, or write.
+This is where I store writeups for CTF challenges that I've either solved, helped solve, or wrote.
 
 [generate.py](generate.py) is some quick code I threw together to provide some structure to writeups. Use at your own risk.
 
