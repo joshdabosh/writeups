@@ -26,3 +26,5 @@ This is where I store writeups for CTF challenges that I've either solved, helpe
 [Zh3r0 PreCTF](2020-Zh3r0PreCTF)
 
 [SharkyCTF](2020-SharkyCTF)
+
+[MAGIC oCTF](2020-MAGICoCTF)
