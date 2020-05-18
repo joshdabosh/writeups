@@ -9,8 +9,6 @@ This is where I store writeups for CTF challenges that I've either solved, helpe
 
 [DawgCTF](2020-DawgCTF)
 
-[DeepCTF](2020-DeepCTF)
-
 [HackTM](2020-HackTM)
 
 [HouseplantCTF](2020-HouseplantCTF)
