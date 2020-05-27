@@ -1,0 +1,2 @@
+# Naughty
+Pwn, 100

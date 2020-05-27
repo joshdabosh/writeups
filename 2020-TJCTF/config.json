@@ -1,0 +1,213 @@
+{
+	"index": {
+		"notes": ["overview"]
+	},
+	"categories": ["misc", "web", "crypto", "pwn", "rev", "forensics"],
+	"columns": ["category", "points"],
+	"challenges": {
+		"A First Step": {
+			"category": "misc",
+			"points": "5"
+		},
+		"Discord": {
+			"category": "misc",
+			"points": "5"
+		},
+		"Broken Button": {
+			"category": "web",
+			"points": "10"
+		},
+		"Circles": {
+			"category": "crypto",
+			"points": "10"
+		},
+		"Speedrunner": {
+			"category": "crypto",
+			"points": "10"
+		},
+		"Forwarding": {
+			"category": "rev",
+			"points": "10"
+		},
+		"Ling Ling": {
+			"category": "forensics",
+			"points": "10"
+		},
+		"Gym": {
+			"category": "rev",
+			"points": "20"
+		},
+		"Tinder": {
+			"category": "pwn",
+			"points": "25"
+		},
+		"Hexillology": {
+			"category": "forensics",
+			"points": "25"
+		},
+		"Tap Dancing": {
+			"category": "crypto",
+			"points": "25"
+		},
+		"Censorship": {
+			"category": "misc",
+			"points": "30"
+		},
+		"Typewriter": {
+			"category": "crypto",
+			"points": "30"
+		},
+		"Login": {
+			"category": "web",
+			"points": "30"
+		},
+		"Sarah Palin Fanpage": {
+			"category": "web",
+			"points": "35"
+		},
+		"Titanic": {
+			"category": "crypto",
+			"points": "35"
+		},
+		"Chord Encoder": {
+			"category": "rev",
+			"points": "40"
+		},
+		"arabfunny": {
+			"category": "misc",
+			"points": "40"
+		},
+		"Login Sequel": {
+			"category": "web",
+			"points": "40"
+		},
+		"Rap God": {
+			"category": "forensics",
+			"points": "40"
+		},
+		"Is This Crypto?": {
+			"category": "crypto",
+			"points": "50"
+		},
+		"Seashells": {
+			"category": "pwn",
+			"points": "50"
+		},
+		"Bad Python": {
+			"category": "rev",
+			"points": "50"
+		},
+		"OSRS": {
+			"category": "pwn",
+			"points": "50"
+		},
+		"Weak Password": {
+			"category": "web",
+			"points": "50"
+		},
+		"Timed": {
+			"category": "misc",
+			"points": "50"
+		},
+		"RSABC": {
+			"category": "crypto",
+			"points": "50"
+		},
+		"Truly Terrible Why": {
+			"category": "misc",
+			"points": "50"
+		},
+		"Unimportant": {
+			"category": "forensics",
+			"points": "60"
+		},
+		"ASMR": {
+			"category": "rev",
+			"points": "60"
+		},
+		"El Primo": {
+			"category": "pwn",
+			"points": "60"
+		},
+		"Comprehensive 2": {
+			"category": "rev",
+			"points": "65"
+		},
+		"Stop": {
+			"category": "pwn",
+			"points": "70"
+		},
+		"Jarvis": {
+			"category": "misc",
+			"points": "70"
+		},
+		"Congenial Octo Couscous": {
+			"category": "web",
+			"points": "70"
+		},
+		"RGBSA": {
+			"category": "crypto",
+			"points": "70"
+		},
+		"File Viewer": {
+			"category": "web",
+			"points": "70"
+		},
+		"Zipped Up": {
+			"category": "misc",
+			"points": "70"
+		},
+		"Gamer F": {
+			"category": "forensics",
+			"points": "80"
+		},
+		"Circus": {
+			"category": "web",
+			"points": "80"
+		},
+		"Gamer R": {
+			"category": "rev",
+			"points": "80"
+		},
+		"Home Rolled": {
+			"category": "crypto",
+			"points": "80"
+		},
+		"Cookie Monster": {
+			"category": "forensics",
+			"points": "80"
+		},
+		"Moar Horse 4": {
+			"category": "web",
+			"points": "80"
+		},
+		"FB Library": {
+			"category": "web",
+			"points": "90"
+		},
+		"Cookie Library": {
+			"category": "pwn",
+			"points": "90"
+		},
+		"Corrupted Project": {
+			"category": "forensics",
+			"points": "90"
+		},
+		"Naughty": {
+			"category": "pwn",
+			"points": "100"
+		},
+		"Gamer M": {
+			"category": "misc",
+			"points": "100"
+		},
+		"Difficult Decryption": {
+			"category": "crypto",
+			"points": "100"
+		},
+		"Admin Secrets": {
+			"category": "web",
+			"points": "100"
+		}
+	}
+}
