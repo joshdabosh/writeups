@@ -28,3 +28,5 @@ This is where I store writeups for CTF challenges that I've either solved, helpe
 [MAGIC oCTF](2020-MAGICoCTF)
 
 [Thomas Jefferson CTF](2020-TJCTF)
+
+[High School CTF](2020-HSCTF)
