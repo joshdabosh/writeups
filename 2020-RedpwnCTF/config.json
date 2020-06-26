@@ -1,0 +1,30 @@
+{
+	"index": {
+		"notes": ["overview"]
+	},
+	"categories": ["pwn"],
+	"columns": ["category", "points"],
+	"challenges": {
+		"Secret Flag": {
+			"category": "pwn",
+			"points": "348"
+		},
+		"The Library": {
+			"category": "pwn",
+			"points": "424"
+		},
+		"Dead Canary": {
+			"category": "pwn",
+			"points": "475"
+		},
+		"Skywriting": {
+			"category": "pwn",
+			"points": "480"
+		},
+		"Four Function Heap": {
+			"category": "pwn",
+			"points": "490"
+		}
+	}
+}
+
