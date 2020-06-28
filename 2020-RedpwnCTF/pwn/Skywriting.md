@@ -45,16 +45,16 @@ Remember to replace the last byte of the receieved canary with `0x00` (it'll be 
 
 After that, I leaked libc. It turns out there is a libc pointer which I leaked with 151 "A"s and a newline. Then I calculated the libc base using an offset I found in GDB, allowing me to ret2libc.
 
-Finally, I overwrote the base pointer (ebp) with a ROP chain which eventually calls system, and also kept the canary unmodified using the leaked canary.
+Finally, I overwrote the saved instruction pointer with a ROP chain which eventually calls system, and also kept the canary unmodified using the leaked canary.
 
-On the last iteration, I exited so RBP gets returned to. So I sent the string to get strcmp to return 0, `notflag{a_cloud_is_just_someone_elses_computer}\n`.
+On the last iteration, I exited out of the loop. So I sent the string to get strcmp to return 0, `notflag{a_cloud_is_just_someone_elses_computer}\n`.
 
 There should be a `chr(0)` at the end of the string, so strcmp knows when to stop comparing.
 
 Strcmp will see:
 `notflag{a_cloud_is_just_someone_elses_computer}\n<null byte>\n`, and will only compare up to and including `notflag{a_cloud_is_just_someone_elses_computer}\n`.
 
-So, the loop will terminate, and the program will try to return to RBP, which is now a ROP chain, spawning a shell.
+So, the loop will terminate, and the program will load the saved RIP into RIP, which is now a ROP chain. It follows the execution, and spawns a shell.
 
 ```python
 from pwn import *

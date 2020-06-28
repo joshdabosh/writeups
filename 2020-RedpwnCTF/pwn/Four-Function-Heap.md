@@ -56,7 +56,7 @@ Opening the binary into Ghidra, there is a pretty clear UAF vulnerability - when
     
 8. I allocated a `0x40` sized chunk. This basically split my chunk from step 5 into two smaller chunks due to glibc's first-fit allocation. I wrote the address of `__free_hook` to this chunk.
 
-    I still have no idea why this chunk gets added to the freelist. I think (?) it might be because the tcache counter is really high, but if anyone reading this knows please tell me :D
+    The address of this chunk is pointed to by the first free in action 1. After writing the address of `__free_hook`, the tcache looks something like `top -> chunk1 -> __free_hook`
 
 9. I allocated a `0x100` sized chunk from tcache. This removed one from the tcache freelist and set me up for the `__free_hook` overwrite.
 
@@ -139,6 +139,7 @@ p.interactive()
 ```
 
 Flag: `flag{g3n3ric_f1ag_1n_1e3t_sp3ak}`
+
 
 ### Appendix
 I wanted to leak libc to get the one_gadget address (I only had an offset from libc base due to the security protections).
