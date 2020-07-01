@@ -17,3 +17,4 @@ Also solved my first actual heap chall!
 |[Dead Canary](pwn/Dead-Canary.md)|pwn|475|
 |[Skywriting](pwn/Skywriting.md)|pwn|480|
 |[Four Function Heap](pwn/Four-Function-Heap.md)|pwn|490|
+|[Tetanus (script only)](pwn/Tetanus.md)|pwn|492|
