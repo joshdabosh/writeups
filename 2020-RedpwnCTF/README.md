@@ -1,5 +1,4 @@
-
-# 2020-RedpwnCTF
+# RedpwnCTF 2020
 
 ## Overview
 
