@@ -67,7 +67,7 @@ Recall that there is a cache person pointer that is set on view. How does this p
 
 Here is relevant Ghidra decomp for deleting a person from a house:
 
-```c=
+```c
 void remove_person_from_house(void){
   uint house_num;
   uint person_num;
@@ -165,7 +165,7 @@ So, we can get a 1->2->1 double free.
 Unfortunately, we can't directly free `person_chunk` twice in any case, as `person_chunk` gets set to not in use and the `person_chunk` pointer gets zeroed after deleting.
 
 Luckily, we can use the party function. Here is relevant code:
-```c=
+```c
 if (uVar1 == 0) {
   local_14 = 0;
   while (local_14 < 10) {
@@ -225,7 +225,7 @@ Then, we can go and delete something with `/bin/sh` in it. Recall that we chose 
 
 Script:
 
-```python=
+```python
 from pwn import *
 
 e = ELF("./chall")
