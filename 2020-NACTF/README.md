@@ -21,7 +21,7 @@ We can fix this by creating an excess of freeable chunks before poisoning, and f
 Then, just tcache poison to overwrite `__libc_free_hook` with `system` and free a chunk with `/bin/sh`.
 
 
-```python=
+```python
 from pwn import *
 
 e = ELF("./cttt")
@@ -118,7 +118,7 @@ Flag: `nactf{d0nt_us3_4ft3r_fr33_zsouEFF4bfCI5eew}`
 ## Tale of two
 We get one relative read and one relative write. We can read a libc pointer at offset -4 and we can write a one_gadget to .fini_array at offset -75.
 
-```python=
+```python
 from pwn import *
 
 e = ELF("./tale-of-two")
