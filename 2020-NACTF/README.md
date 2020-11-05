@@ -11,6 +11,12 @@ Coming soon after admins finish verifications :D
 
 
 ## Covid tracker tracker tracker
+> Pwn 500, 40 solves
+> You've heard of COVID trackers, you might have heard of COVID tracker trackers, but what about COVID tracker tracker trackers? This one is a little rough around the edges, but what could possibly go wrong?
+> 
+> nc challenges.ctfd.io 30252
+> 
+> -asphyxia
 
 No PIE, so we can poison tcache and point it to `setvbuf@got` to read a libc pointer. Then, we can poison tcache again to write `system` to `__libc_free_hook`.
 
@@ -116,6 +122,13 @@ Flag: `nactf{d0nt_us3_4ft3r_fr33_zsouEFF4bfCI5eew}`
 
 
 ## Tale of two
+> Pwn 500, 36 solves
+> A tale of two functions, two operations, and a flag.
+> 
+> nc challenges.ctfd.io 30250
+> 
+> -asphyxia
+
 We get one relative read and one relative write. We can read a libc pointer at offset -4 and we can write a one_gadget to .fini_array at offset -75.
 
 ```python
