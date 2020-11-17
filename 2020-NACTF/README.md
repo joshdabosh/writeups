@@ -5,11 +5,6 @@ b1c takes third global and first in highschools (We stole Gabe for one algo chal
 We also maintained the b1c tradition of dropping from 1st to 3rd due to a single challenge (*ahem* veggie factory 5 *ahem*) :upside_down_face:
 
 
-## Grade calculator
-
-Coming soon after admins finish verifications :D
-
-
 ## Covid tracker tracker tracker
 > Pwn 500, 40 solves
 > You've heard of COVID trackers, you might have heard of COVID tracker trackers, but what about COVID tracker tracker trackers? This one is a little rough around the edges, but what could possibly go wrong?
