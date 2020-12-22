@@ -1,4 +1,4 @@
-# Newark Academy CTF 2020 Internal
+# Newark Academy CTF 2020
 
 b1c takes third global and first in highschools (We stole Gabe for one algo challenge *again*).
 
