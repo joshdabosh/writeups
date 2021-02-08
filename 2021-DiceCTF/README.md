@@ -1,6 +1,4 @@
-# DiceCTF 2021
-
-This weekend I wrote [`babyrop`](#babyrop) and [`flippidy`](#flippidy), both easy (relatively speaking) pwn challenges for DiceCTF 2021.
+This weekend I wrote `flippidy` and `babyrop`, both easy (relatively speaking) pwn challenges for DiceCTF 2021.
 
 
 ## Flippidy
@@ -18,10 +16,12 @@ This was a heap note challenge. The provided libc version is 2.27 without the tc
 We are allowed to choose the size of our notebook.
 
 We are given two functions:
-Add - create a note (`malloc(0x30)`) at an index and write to the chunk. Doesn't care if the index is taken, will not free it.
-Flip - flip the notebook (swap `d c b a` to `a b c d`)
+- Add - create a note (`malloc(0x30)`) at an index and write to the chunk. Doesn't care if the index is taken, will not free it.
+- Flip - flip the notebook (swap `d c b a` to `a b c d`)
 
 Further, the menu prints 4 pointers from a `char *` array, which correspond to the four lines that comprise the menu.
+
+<!-- more -->
 
 ### Bug
 The bug exists in the flip function. When flipping a notebook, it saves the content, frees both indices, mallocs, and then `strcpy`s the content to the opposite chunk.
@@ -158,9 +158,9 @@ Libc leak:
 The only available [GOT](http://bottomupcs.sourceforge.net/csbu/x3824.htm) functions are `write` and `gets`, so we can't just call `puts()` with a `pop rdi` gadget to leak libc. To get `write()` working, we need control of `rdi`, `rsi`, and `rdx`.
 
 A call to [write](https://www.man7.org/linux/man-pages/man2/write.2.html) needs:
-rdi = [file descriptor](https://en.wikipedia.org/wiki/File_descriptor) (in this case, we want it to be `1` for stdout)
-rsi = pointer to what we want to write (GOT entry of `write` to leak the libc address)
-rdx = number of bytes to write
+- rdi = [file descriptor](https://en.wikipedia.org/wiki/File_descriptor) (in this case, we want it to be `1` for stdout)
+- rsi = pointer to what we want to write (GOT entry of `write` to leak the libc address)
+- rdx = number of bytes to write
 
 
 Gadgets to control the first two can easily be found with `ROPgadget --binary babyrop`. However, controlling `rdx` is a bit more complicated and requires a technique called [`ret2csu`](https://bananamafia.dev/post/x64-rop-redpwn/).
