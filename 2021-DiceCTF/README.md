@@ -158,7 +158,7 @@ Libc leak:
 The only available [GOT](http://bottomupcs.sourceforge.net/csbu/x3824.htm) functions are `write` and `gets`, so we can't just call `puts()` with a `pop rdi` gadget to leak libc. To get `write()` working, we need control of `rdi`, `rsi`, and `rdx`.
 
 A call to [write](https://www.man7.org/linux/man-pages/man2/write.2.html) needs:
-rdi = [file descriptor](http://codemyne.net/Articles/2012/8/File-pointer-basics) (in this case, we want it to be `1` for [stdout](https://en.wikipedia.org/wiki/File_descriptor))
+rdi = [file descriptor](https://en.wikipedia.org/wiki/File_descriptor) (in this case, we want it to be `1` for stdout)
 rsi = pointer to what we want to write (GOT entry of `write` to leak the libc address)
 rdx = number of bytes to write
 
