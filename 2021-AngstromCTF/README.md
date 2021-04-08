@@ -1,6 +1,6 @@
 # ångstromCTF 2021
 
-This past weekend I had the privilege of helping organize ångstromCTF 2021!
+This past weekend I had the privilege of helping organize (ångstromCTF 2021](https://2021.angstromctf.com/)!
 
 These are the solutions to my challenges.
 
