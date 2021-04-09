@@ -1,6 +1,6 @@
 # ångstromCTF 2021
 
-This past weekend I had the privilege of helping organize (ångstromCTF 2021](https://2021.angstromctf.com/)!
+This past weekend I had the privilege of helping organize [ångstromCTF 2021](https://2021.angstromctf.com)!
 
 These are the solutions to my challenges.
 
@@ -19,7 +19,7 @@ offset: "0"
 Flag: `actf{and_i_was_doing_fine_but_as_you_came_in_i_watch_my_regex_rewrite_f53d98be5199ab7ff81668df}`
 
 
-Note: this challenge was originally meant to be much harder, but I overlooked the cols injection :sweat_smile:. This is why SoQ 2 was released in the second wave.
+Note: this challenge was originally meant to be much harder, but I overlooked the cols injection. This is why SoQ 2 was released in the second wave.
 
 
 ## Sea of Quills 2
@@ -61,6 +61,18 @@ p.interactive()
 ```
 
 Flag: `actf{time_has_gone_so_fast_watching_the_leaves_fall_from_our_instruction_pointer_864f647975d259d7a5bee6e1}`
+
+
+## Stickystacks
+The `vuln` function reads the flag onto the stack. There is an obvious format string vulnerability, allowing us to leak parts of the stack.
+
+However, our `name` can only be 6 characters long, so we can't spam `%p` until we see the flag. I used positional modifiers on the format string to get the flag back.
+
+After some handwork the flag starts at `%31$p` on the stack, and we can leak the rest using `%p`.
+
+Flag: `actf{well_i'm_back_in_black_yes_i'm_back_in_the_stack_bec9b51294ead77684a1f593}`
+
+Many people messaged me with a half-flag (kinda looks like a flag but not legible). This is because they used `%x`, which only leaks an "Unsigned hexadecimal integer". Integers are 32 bits, so they would only get 4 bytes of each 8 byte chunk of the flag. You could also use `%llx` in replacement of `%p`.
 
 
 ## Wallstreet
